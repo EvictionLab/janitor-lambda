@@ -115,7 +115,7 @@ let clean = co.wrap(function* () {
   console.log(`${toClean.length} functions to clean:\n`, toClean);
 
   for (let func of toClean) {
-    yield cleanFunc(func);
+    yield cleanFunc(func).catch(e => {});
     _.pull(functions, func);
   }
 });
